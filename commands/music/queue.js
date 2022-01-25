@@ -77,6 +77,11 @@ module.exports = {
                 )
         )
 
+        if (~~(q.songs.length / 10) == 0 ? 1 : ~~(q.songs.length / 10) == 1) {
+            comps[0].components[2].disabled = true
+            comps[0].components[3].disabled = true
+        }
+
         msg.channel.send({ content: ` Page **1**/**${~~(q.songs.length / 10) == 0 ? 1 : ~~(q.songs.length / 10)}**`, embeds: [embed], components: comps })
     }
 }
