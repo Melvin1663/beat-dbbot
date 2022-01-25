@@ -35,7 +35,7 @@ module.exports = async (msg, client, Discord) => {
             return;
         }
 
-        if (q.songs[0].type == 'video') await player.play(voice.createAudioResource(await ytdl(q.songs[0].url, { quality: "highestaudio", highWaterMark: 1 << 25, type: "opus", filter: 'audioonly' }), { inlineVolume: true }));
+        await player.play(voice.createAudioResource(await ytdl(q.songs[0].url, { quality: "highestaudio", highWaterMark: 1 << 25, type: "opus", filter: 'audioonly' }), { inlineVolume: true }));
         q.connection.state.subscription.player.state.resource.volume.setVolume(q.volume)
     })
 

@@ -12,7 +12,7 @@ module.exports = {
         if (q && msg.member.voice.channel.id !== msg.guild.me.voice.channel.id) return msg.channel.send(`You need to be in <#${msg.guild.me.voice.channel.id}>`)
         let music = await require('../../functions/getMusic')(args.join(' '), client, msg);
         if (music.code != 0) return msg.channel.send(music.txt || 'An error occured');
-        if (q) {
+        if (q && q.songs.length > 0) {
             let isPlaylist = false
             if (music.res.length) {
                 q.songs.push(...music.res[0]);
