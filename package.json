@@ -1,0 +1,28 @@
+{
+  "name": "beat",
+  "version": "1.0.0",
+  "description": "Plays YouTube music in Discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Melvin",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "@discordjs/voice": "^0.7.5",
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "ffmpeg-static": "^4.4.0",
+    "hhmmss": "^1.0.0",
+    "hhmmsstosec": "^1.0.2",
+    "libsodium-wrappers": "^0.7.9",
+    "lyrics-finder": "^21.7.0",
+    "moment": "^2.29.1",
+    "youtube-search": "^1.1.6",
+    "yt-search": "^2.10.2",
+    "ytdl": "^1.4.1",
+    "ytdl-core": "^4.9.2",
+    "ytpl": "^2.2.3"
+  }
+}
