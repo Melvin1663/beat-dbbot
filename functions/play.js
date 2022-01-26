@@ -74,8 +74,8 @@ module.exports = async (msg, client, Discord) => {
 
     player.on('playing', (oS, nS) => {
         if (oS.status == 'paused') return;
-
-        console.log('HELLO WORLD')
+        if (oS.status == 'buffering') return;
+        console.log(oS.status, nS.status)
 
         if (!q.songs.length) {
             q.player.removeAllListeners()
@@ -88,7 +88,7 @@ module.exports = async (msg, client, Discord) => {
         if (q.first == true || q.notify == true) {
             if (q.first == true) q.first = false;
             let thing = new Discord.MessageEmbed()
-                .setAuthor('Now Playing', 'https://i.imgur.com/5I8C0jo.gif')
+                .setAuthor({ name: 'Now Playing', iconURL: 'https://i.imgur.com/5I8C0jo.gif' })
                 .setColor('GREEN')
                 .setThumbnail(song.img)
                 .setTitle(song.title)
@@ -101,7 +101,7 @@ module.exports = async (msg, client, Discord) => {
                     { name: 'Likes', value: song.likes, inline: true },
                     { name: 'Age Restricted', value: song.ageRestricted ? 'Yes' : 'No', inline: true }
                 )
-                .setFooter(`Views: ${song.views} | ${song.ago}`)
+                .setFooter({ text: `Views: ${song.views} | ${song.ago}` })
 
             return msg.channel.send({ embeds: [thing] });
         }
