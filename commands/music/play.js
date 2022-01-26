@@ -14,13 +14,17 @@ module.exports = {
         if (music.code != 0) return msg.channel.send(music.txt || 'An error occured');
         if (q && q.songs.length > 0) {
             let isPlaylist = false
+            let song;
             if (music.res.length) {
                 q.songs.push(...music.res[0]);
                 isPlaylist = true;
+                song = music.res[0][0];
             }
-            else q.songs.push(music.res);
+            else {
+                q.songs.push(music.res);
+                song = music.res
+            }
 
-            const song = q.songs[0];
             let thing;
 
             if (isPlaylist) {
