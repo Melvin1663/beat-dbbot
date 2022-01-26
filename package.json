@@ -20,6 +20,7 @@
     "ffmpeg-static": "^4.4.0",
     "hhmmss": "^1.0.0",
     "hhmmsstosec": "^1.0.2",
+    "jaro-winkler": "^0.2.8",
     "libsodium-wrappers": "^0.7.9",
     "lyrics-finder": "^21.7.0",
     "moment": "^2.29.1",
