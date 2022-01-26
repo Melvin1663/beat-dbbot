@@ -25,7 +25,7 @@ module.exports = {
         return msg.channel.send({
             embeds: [
                 new Discord.MessageEmbed()
-                    .setAuthor("Song Skipper", 'https://i.imgur.com/5I8C0jo.gif')
+                    .setAuthor({ name: "Song Skipper", iconURL: 'https://i.imgur.com/5I8C0jo.gif'})
                     .setColor('BLUE')
                     .setDescription(args.length ? `Skipped \`${args[0]} song${args[0] == 1 ? '' : 's'}\`` : `Skipped [${lSong.title}](${lSong.url})`)
             ]

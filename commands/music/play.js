@@ -104,7 +104,7 @@ module.exports = {
                     v.isPlayable ? playableSongs++ : {};
                 })
                 let thing = new Discord.MessageEmbed()
-                    .setAuthor('Added to Queue', 'https://i.imgur.com/5I8C0jo.gif')
+                    .setAuthor({ name: 'Added to Queue', iconURL: 'https://i.imgur.com/5I8C0jo.gif' })
                     .setColor('YELLOW')
                     .setThumbnail(pl.bestThumbnail.url)
                     .setTitle(Discord.Util.escapeMarkdown(pl.title))
@@ -117,7 +117,7 @@ module.exports = {
                         { name: 'Song Count', value: pl.items.length.toLocaleString(), inline: true },
                         { name: 'Playable Songs', value: playableSongs.toLocaleString(), inline: true }
                     )
-                    .setFooter(`Views: ${pl.views.toLocaleString()} | ${pl.lastUpdated}`)
+                    .setFooter({ text: `Views: ${pl.views.toLocaleString()} | ${pl.lastUpdated}` })
 
                 msg.channel.send({ embeds: [thing] });
             }

@@ -12,7 +12,7 @@ module.exports = {
         if (!args.length && !q) return msg.channel.send('No song specified');
         else if (!args.length && q) args[0] = q.songs[0].title
 
-        let embed = new Discord.MessageEmbed().setColor('RANDOM').setFooter(`Requested by ${msg.author.tag}`, msg.author.displayAvatarURL()); 
+        let embed = new Discord.MessageEmbed().setColor('RANDOM').setFooter({ text: `Requested by ${msg.author.tag}`, iconURL: msg.author.displayAvatarURL()}); 
         let lyric = await lyrics(args.join(' ')); 
         let noLyric = 0 
 

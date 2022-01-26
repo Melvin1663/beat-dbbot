@@ -12,7 +12,7 @@ module.exports = {
         if (!args.length) return msg.channel.send({
             embeds: [
                 new Discord.MessageEmbed()
-                    .setDescription(`🎧 Volume: **${Math.trunc(q.volume * 100)}**/200`)
+                    .setDescription({ text: `🎧 Volume: **${Math.trunc(q.volume * 100)}**/200` })
                     .setAuthor("Server Volume Manager", 'https://i.imgur.com/5I8C0jo.gif')
                     .setColor("GREEN")
             ]
@@ -25,7 +25,7 @@ module.exports = {
             embeds: [
                 new Discord.MessageEmbed()
                     .setDescription(`🎧 Volume: **${Math.trunc(q.volume * 100)}**/200`)
-                    .setAuthor("Server Volume Manager", 'https://i.imgur.com/5I8C0jo.gif')
+                    .setAuthor({ name: "Server Volume Manager", iconURL: 'https://i.imgur.com/5I8C0jo.gif' })
                     .setColor("BLUE")
             ]
         })

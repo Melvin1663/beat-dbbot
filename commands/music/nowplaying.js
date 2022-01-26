@@ -15,7 +15,7 @@ module.exports = {
         let curDur = q.connection?.state?.subscription?.player?.state?.resource?.playbackDuration;
         let totalDur = song.duration != 'LIVE' ? hhmmssToSec(song.duration) : curDur / 1000;
         let embed = new Discord.MessageEmbed()
-            .setAuthor('Now Playing', 'https://i.imgur.com/5I8C0jo.gif')
+            .setAuthor({ name: 'Now Playing', iconURL: 'https://i.imgur.com/5I8C0jo.gif' })
             .setColor('GREEN')
             .setThumbnail(song.img)
             .setTitle(song.title)
@@ -32,7 +32,7 @@ module.exports = {
                     value: `\`${hhmmss(curDur / 1000)}\` ${pb('🔘', '▬', Math.round((((curDur / 1000) + song.startedAt) / totalDur) * 19), 20)} \`${song.duration}\``
                 }
             )
-            .setFooter(`Views: ${song.views} | ${song.ago}`)
+            .setFooter({ text: `Views: ${song.views} | ${song.ago}` })
 
 
         msg.channel.send({ embeds: [embed] })
