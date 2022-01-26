@@ -36,7 +36,7 @@ module.exports = {
                         .setAuthor({ name: client.user.tag, iconURL: client.user.displayAvatarURL() })
                         .setColor('RED')
                         .setTitle(cmd.name[0].toUpperCase() + cmd.name.slice(1))
-                        .setDescription(`**Description:** ${cmd.description ?? 'No Description'}\n**Usage:** ${cmd.usage ?? 'No Usage'}\n**Aliases:** ${cmd.aliases.length ? cmd.aliases.join(', ') : 'No Aliases'}`)
+                        .setDescription(`**Description:** ${cmd.description ?? 'No Description'}\n**Usage:** ${cmd.usage ?? 'No Usage'}\n**Aliases:** ${cmd.aliases?.length ? cmd.aliases.join(', ') : 'No Aliases'}`)
                         .setFooter({ text: "Arguments: () = Optional; [] = Required" })
                 ]
             })
