@@ -74,7 +74,6 @@ module.exports = async (msg, client, Discord) => {
 
     player.on('playing', (oS, nS) => {
         if (oS.status == 'paused') return;
-        if (oS.status == 'buffering') return;
         console.log(oS.status, nS.status)
 
         if (!q.songs.length) {
