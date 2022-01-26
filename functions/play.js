@@ -73,6 +73,10 @@ module.exports = async (msg, client, Discord) => {
     })
 
     player.on('playing', (oS, nS) => {
+        if (oS.status == 'paused') return;
+
+        console.log('HELLO WORLD')
+
         if (!q.songs.length) {
             q.player.removeAllListeners()
             q.player.stop();
