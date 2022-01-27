@@ -87,7 +87,7 @@ module.exports = async (msg, client, Discord) => {
         if (!song) return;
         if (q.first == true || q.notify == true) {
             if (q.first == true) q.first = false;
-            if (q.loop == false || q.repeat == false) {
+            if (q.loop == false && q.repeat == false) {
                 let thing = new Discord.MessageEmbed()
                     .setAuthor({ name: 'Now Playing', iconURL: 'https://i.imgur.com/5I8C0jo.gif' })
                     .setColor('GREEN')
