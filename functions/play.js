@@ -87,23 +87,25 @@ module.exports = async (msg, client, Discord) => {
         if (!song) return;
         if (q.first == true || q.notify == true) {
             if (q.first == true) q.first = false;
-            let thing = new Discord.MessageEmbed()
-                .setAuthor({ name: 'Now Playing', iconURL: 'https://i.imgur.com/5I8C0jo.gif' })
-                .setColor('GREEN')
-                .setThumbnail(song.img)
-                .setTitle(song.title)
-                .setURL(song.url)
-                .addFields(
-                    { name: 'Channel', value: `[${song.channel}](${song.channelLink})`, inline: true },
-                    { name: 'Duration', value: song.duration, inline: true },
-                    { name: 'Requested by', value: song.req.toString(), inline: true },
-                    { name: 'Category', value: song.category, inline: true },
-                    { name: 'Likes', value: song.likes, inline: true },
-                    { name: 'Age Restricted', value: song.ageRestricted ? 'Yes' : 'No', inline: true }
-                )
-                .setFooter({ text: `Views: ${song.views} | ${song.ago}` })
+            if (q.loop == false || q.repeat == false) {
+                let thing = new Discord.MessageEmbed()
+                    .setAuthor({ name: 'Now Playing', iconURL: 'https://i.imgur.com/5I8C0jo.gif' })
+                    .setColor('GREEN')
+                    .setThumbnail(song.img)
+                    .setTitle(song.title)
+                    .setURL(song.url)
+                    .addFields(
+                        { name: 'Channel', value: `[${song.channel}](${song.channelLink})`, inline: true },
+                        { name: 'Duration', value: song.duration, inline: true },
+                        { name: 'Requested by', value: song.req.toString(), inline: true },
+                        { name: 'Category', value: song.category, inline: true },
+                        { name: 'Likes', value: song.likes, inline: true },
+                        { name: 'Age Restricted', value: song.ageRestricted ? 'Yes' : 'No', inline: true }
+                    )
+                    .setFooter({ text: `Views: ${song.views} | ${song.ago}` })
 
-            return msg.channel.send({ embeds: [thing] });
+                return msg.channel.send({ embeds: [thing] });
+            }
         }
     })
 }
