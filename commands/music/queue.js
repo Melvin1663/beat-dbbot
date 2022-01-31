@@ -8,7 +8,7 @@ module.exports = {
     usage: '>queue',
     run: async (Discord, client, msg, args) => {
         const q = client.queue.get(msg.guild.id)
-        if (!q || !q.songs.length) return msg.channel.send("There's no Songs in the queue");
+        if (!q || !q.songs.length) return msg.channel.send("There are no Songs in the queue");
         let songs = require('../../functions/genQ')(q, 1);
         let tsl = 0;
         q.songs.forEach(s => {
